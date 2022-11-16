@@ -9,15 +9,7 @@ import (
 	"restaurant-information-system/database/models"
 )
 
-type ErrorResponse struct {
-	FailedField string
-	Tag         string
-	Value       string
-}
-
-var validate = validator.New()
-
-func ValidateStruct(product models.Product) []*ErrorResponse {
+func ValidateStructProduct(product models.Product) []*ErrorResponse {
 
 	var errors []*ErrorResponse
 	err := validate.Struct(product)
@@ -46,7 +38,7 @@ func (repo *Repository) CreateProduct(ctx *fiber.Ctx) error {
 			&fiber.Map{"Message": "Request failed"})
 	}
 
-	errors := ValidateStruct(product)
+	errors := ValidateStructProduct(product)
 
 	if errors != nil {
 		return ctx.Status(http.StatusBadRequest).JSON(errors)
@@ -72,7 +64,7 @@ func (repo *Repository) UpdateProduct(ctx *fiber.Ctx) error {
 		return err
 	}
 
-	errors := ValidateStruct(product)
+	errors := ValidateStructProduct(product)
 
 	if errors != nil {
 		return ctx.Status(fiber.StatusBadRequest).JSON(errors)

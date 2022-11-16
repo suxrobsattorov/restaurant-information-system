@@ -4,7 +4,7 @@ import EachProduct from './EachProduct';
 import axios from "axios"
 import {Link, useNavigate, useSearchParams} from "react-router-dom";
 
-export default function List() {
+export default function ListProduct() {
     const [products, setProducts] = useState([])
     const [pages, setPages] = useState(0)
     const [searchParams, setSearchParams] = useSearchParams();
@@ -35,7 +35,7 @@ export default function List() {
         closeModal()
         form.reset()
         fetchData();
-        navigate("/")
+        navigate("/product")
     }
 
     const storeProduct = (e) => {
@@ -49,16 +49,12 @@ export default function List() {
 
     let myPage = searchParams.get("page") ? searchParams.get("page") : 0;
     return (
-        <div className=""
-             // style={{
-             //     backgroundImage: `url("https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg")`
-             // }}
-        >
+        <div className="">
             <div className="flex justify-center">
                 <div className="lg:w-1/3 w-full">
                     <div className="p-10">
                         <div className="mb-10 flex items-center justify-between">
-                            <h1 className="font-bold">CRUD App</h1>
+                            <h1 className="font-bold">Product CRUD App</h1>
                             <button className="bg-purple-700 text-white px-3 py-1.5 rounded" onClick={openModal}>Add
                                 product
                             </button>
@@ -104,8 +100,15 @@ export default function List() {
                                                     </div>
                                                     <div className="mb-5">
                                                         <label
-                                                            className="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                                                        <input type="text" name="email"
+                                                            className="block text-gray-700 text-sm font-bold mb-2">Price</label>
+                                                        <input type="text" name="price"
+                                                               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                               required/>
+                                                    </div>
+                                                    <div className="mb-10">
+                                                        <label
+                                                            className="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                                                        <input type="text" name="description"
                                                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                                                required/>
                                                     </div>
@@ -113,20 +116,6 @@ export default function List() {
                                                         <label
                                                             className="block text-gray-700 text-sm font-bold mb-2">Date</label>
                                                         <input type="date" name="date"
-                                                               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                               required/>
-                                                    </div>
-                                                    <div className="mb-5">
-                                                        <label
-                                                            className="block text-gray-700 text-sm font-bold mb-2">City</label>
-                                                        <input type="text" name="city"
-                                                               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                               required/>
-                                                    </div>
-                                                    <div className="mb-10">
-                                                        <label
-                                                            className="block text-gray-700 text-sm font-bold mb-2">Country</label>
-                                                        <input type="text" name="country"
                                                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                                                required/>
                                                     </div>

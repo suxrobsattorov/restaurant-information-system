@@ -3,9 +3,9 @@ import { API_URL } from '../config';
 import { useParams, Link } from "react-router-dom";
 
 
-export default function ViewProduct() {
+export default function ViewCustomer() {
   let { id } = useParams();
-  const [product, setProduct] = useState({})
+  const [customer, setProduct] = useState({})
   const [loading, setLoading] = useState(false)
 
   
@@ -14,7 +14,7 @@ export default function ViewProduct() {
     const fetchProduct = async () => {
       setLoading(true)
       try {
-        const response = await fetch(`${API_URL}/products/${id}`);
+        const response = await fetch(`${API_URL}/customers/${id}`);
         const json = await response.json();
         setProduct(json.data);
         setLoading(false)
@@ -34,24 +34,24 @@ export default function ViewProduct() {
           <div className="lg:w-1/3 w-full">
             <div className="p-10">
               <div className="mb-10 flex items-center justify-between">
-                <Link to="/product"><h1 className="font-bold">Go back</h1></Link>
+                <Link to="/customer"><h1 className="font-bold">Go back</h1></Link>
               </div>
               <div className="bg-slate-100 rounded-lg px-5">
                 <div className="flex border-b py-4">
                   <div className="mr-4 text-slate-400">Name</div>
-                  <div className="text-slate-800 font-medium">{product.name}</div>
+                  <div className="text-slate-800 font-medium">{customer.name}</div>
                 </div>
                 <div className="flex border-b py-4">
-                  <div className="mr-4 text-slate-400">Price</div>
-                  <div className="text-slate-800 font-medium">{product.price}</div>
+                  <div className="mr-4 text-slate-400">Grade</div>
+                  <div className="text-slate-800 font-medium">{customer.grade}</div>
                 </div>
                 <div className="flex py-4">
                   <div className="mr-4 text-slate-400">Description</div>
-                  <div className="text-slate-800 font-medium">{product.description}</div>
+                  <div className="text-slate-800 font-medium">{customer.description}</div>
                 </div>
                 <div className="flex border-b py-4">
                   <div className="mr-4 text-slate-400">Date</div>
-                  <div className="text-slate-800 font-medium">{product.date}</div>
+                  <div className="text-slate-800 font-medium">{customer.date}</div>
                 </div>
               </div>
             </div>
