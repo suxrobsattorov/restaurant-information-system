@@ -78,7 +78,7 @@ func (repo *Repository) UpdateProduct(ctx *fiber.Ctx) error {
 	}
 
 	if db.Model(&product).Where("id = ?", id).Updates(&product).RowsAffected == 0 {
-		ctx.Status(http.StatusBadRequest).JSON(&fiber.Map{"message": "Could not get Product with given id"})
+		return ctx.Status(http.StatusBadRequest).JSON(&fiber.Map{"message": "Could not get Product with given id"})
 	}
 
 	return ctx.Status(http.StatusOK).JSON(&fiber.Map{"message": "Product successfully updated"})

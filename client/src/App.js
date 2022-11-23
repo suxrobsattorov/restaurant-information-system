@@ -4,6 +4,7 @@ import ListProduct from './products/ListProduct';
 import ViewProduct from './products/ViewProduct';
 import ViewCustomer from "./customers/ViewCustomer";
 import ListCustomer from "./customers/ListCustomer";
+import {Main} from "./pages/main";
 
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
     return (
         <Router>
             <Routes>
+                <Route path="/" index element={<Main/>}/>
                 <Route path="/product" index element={<ListProduct/>}/>
                 <Route path="/product/:id" element={<ViewProduct tailwindcss init/>}/>
                 <Route path="/customer" index element={<ListCustomer/>}/>

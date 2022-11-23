@@ -78,7 +78,7 @@ func (repo *Repository) UpdateCustomer(ctx *fiber.Ctx) error {
 	}
 
 	if db.Model(&customer).Where("id = ?", id).Updates(&customer).RowsAffected == 0 {
-		ctx.Status(http.StatusBadRequest).JSON(&fiber.Map{"message": "Could not get Customer with given id"})
+		return ctx.Status(http.StatusBadRequest).JSON(&fiber.Map{"message": "Could not get Customer with given id"})
 	}
 
 	return ctx.Status(http.StatusOK).JSON(&fiber.Map{"message": "Customer successfully updated"})

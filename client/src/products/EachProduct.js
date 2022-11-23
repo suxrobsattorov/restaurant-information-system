@@ -75,11 +75,11 @@ export default function EachProduct({ product, fetchData }) {
                                             <input type="text" name="name" value={nameValue} onChange={(e) => setNameValue(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                                         </div>
                                         <div className="mb-5">
-                                            <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                                            <label className="block text-gray-700 text-sm font-bold mb-2">Price</label>
                                             <input type="text" name="price" value={priceValue} onChange={(e) => setPriceValue(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                                         </div>
                                         <div className="mb-10">
-                                            <label className="block text-gray-700 text-sm font-bold mb-2">Country</label>
+                                            <label className="block text-gray-700 text-sm font-bold mb-2">Description</label>
                                             <input type="text" name="description" value={descriptionValue} onChange={(e) => setDescriptionValue(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                                         </div>
                                         <div className="mb-5">

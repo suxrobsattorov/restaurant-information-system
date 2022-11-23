@@ -111,7 +111,7 @@ body {
       rgba(240, 240, 240, 0.144),
       rgba(255, 255, 255, 0.336)
     ),
-    url("https://i.postimg.cc/wT3TQS3V/header-image2.jpg");
+    url("https://www.bosshunting.com.au/wp-content/uploads/2021/02/brick-lane-spread-1200x640.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -129,6 +129,17 @@ body {
 .main-title {
   text-transform: uppercase;
   margin-top: 1.5em;
+  font-size: 30px;
+  background-color: lightgoldenrodyellow;
+  border-radius: 10px;
+}
+
+.main-title1 {
+  text-transform: uppercase;
+  margin-top: 0.5em;
+  font-size: 20px;
+  background-color: lightgoldenrodyellow;
+  border-radius: 10px;
 }
 
 /* ......//about us//...... */
@@ -159,8 +170,8 @@ body {
 }
 
 .about-img {
-  flex: 1 1 400px;
-  padding: 30px;
+  flex: 1 1 500px;
+  padding: 20px;
   transform: translateX(150%);
   animation: about-img-animation 1s ease-in-out forwards;
 }
@@ -212,6 +223,10 @@ body {
 .food-container {
   display: flex;
   justify-content: space-between;
+}
+
+.food-img {
+  ;
 }
 
 .food-container img {
@@ -533,9 +548,7 @@ body {
 
   .logo {
     position: absolute;
-    top: 5px;
     right: 15px;
-    font-size: 2rem;
   }
 
   .navbar-container input[type="checkbox"]:checked ~ .menu-items {
