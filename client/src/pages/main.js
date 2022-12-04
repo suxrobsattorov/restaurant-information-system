@@ -1,8 +1,7 @@
 import "./style.css"
 import {API_URL} from "../config";
 import React, {useEffect, useState} from "react";
-import {Link, useNavigate, useSearchParams} from "react-router-dom";
-import axios from "axios";
+import {Link, useSearchParams} from "react-router-dom";
 import EachProduct from "../pages/EachProduct";
 import EachCustomer from "./EachCustomer";
 
@@ -17,7 +16,7 @@ export const Main = () => {
     const fetchData1 = async () => {
         const page = searchParams1.get("page") ? "&page=" + searchParams1.get("page") : '';
         try {
-            const proRes = await fetch(`${API_URL}/products?sort=-id&size=4${page}`);
+            const proRes = await fetch(`${API_URL}/products?sort=-id&size=6${page}`);
             const proJson = await proRes.json();
             setProducts(proJson.data.items);
             setPages1(proJson.data.total_pages)
@@ -66,7 +65,7 @@ export const Main = () => {
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                     <h1 className="logo">
-                        <img height={40} width={40} src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbjJV3geAjUHFrHzgDSdb28kJ_elDyznzlew&usqp=CAU"}/>
+                        <img style={{borderRadius:50}} height={40} width={40} src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbjJV3geAjUHFrHzgDSdb28kJ_elDyznzlew&usqp=CAU"}/>
                     </h1>
                 </div>
             </nav>
@@ -139,9 +138,9 @@ export const Main = () => {
 
                     <div className="">
                         <div className="flex justify-center">
-                            <div className="lg:w-1/3 w-full">
-                                <div className="p-10">
-                                    <div className="">
+                            <div className="lg:w-1/3 w-full" style={{width: 850}}>
+                                <div className="p-10" style={{width: 850}}>
+                                    <div className="d-flex" style={{display: "flex",width: 850, flexWrap: "wrap"}}>
                                         {products.length > 0 ? products.map((product, key) => <EachProduct key={key} product={product}
                                                                                                            fetchData={fetchData1}/>) : ''}
                                     </div>
@@ -163,9 +162,9 @@ export const Main = () => {
                     <div className="testimonial-box">
                         <div className="">
                             <div className="flex justify-center">
-                                <div className="lg:w-1/3 w-full">
+                                <div >
                                     <div className="p-10">
-                                        <div className="">
+                                        <div className="" style={{display: "flex", flexWrap: "wrap", justifyContent: "space-around", width: 1100}}>
                                             {customers.length > 0 ? customers.map((customer, key) => <EachCustomer key={key} customer={customer}
                                                                                                                fetchData={fetchData2}/>) : ''}
                                         </div>

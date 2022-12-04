@@ -2,7 +2,7 @@
 export default function EachCustomer({ customer }) {
 
     return (
-        <div className="bg-slate-100 rounded-lg mb-4 p-4 hover:border hover:border-purple-700">
+        <div className="bg-slate-100 rounded-lg mb-4 p-4 hover:border hover:border-purple-700" style={{width:340, backgroundColor: '#CEEDF4'}}>
             <div>
                 <div>
                     <div>
